@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Instagram Magnifier PRO",
+  "version": "1.0",
+  "description": "High-res hover zoom for Instagram photos and videos with hotkeys, wheel scaling, and instant download.",
+  "icons": {
+    "16": "icon128.png",
+    "48": "icon128.png",
+    "128": "icon128.png"
+  },
+  "permissions": ["storage", "downloads"],
+  "host_permissions": [
+    "https://*.instagram.com/*",
+    "https://instagram.com/*",
+    "https://*.fbcdn.net/*",
+    "https://*.cdninstagram.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Instagram Magnifier PRO",
+    "default_icon": {
+      "16": "icon128.png",
+      "48": "icon128.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.instagram.com/*", "https://instagram.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

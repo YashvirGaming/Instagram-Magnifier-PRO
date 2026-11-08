@@ -1,0 +1,144 @@
+/* ==========================================================================
+   Instagram Magnifier PRO - Core Variables & Themes
+   ========================================================================== */
+
+:root,
+#ig-pro-zoom-box[data-theme="obsidian"] {
+  --ig-zoom-bg: rgba(14, 14, 16, 0.92);
+  --ig-zoom-border: rgba(255, 255, 255, 0.14);
+  --ig-zoom-glow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --ig-hud-bg: rgba(20, 20, 24, 0.78);
+  --ig-hud-text: #f8fafc;
+  --ig-hud-accent: #38bdf8;
+  --ig-hud-border: rgba(255, 255, 255, 0.16);
+}
+
+#ig-pro-zoom-box[data-theme="frost"] {
+  --ig-zoom-bg: rgba(255, 255, 255, 0.88);
+  --ig-zoom-border: rgba(0, 0, 0, 0.12);
+  --ig-zoom-glow: 0 24px 60px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.6);
+  --ig-hud-bg: rgba(255, 255, 255, 0.82);
+  --ig-hud-text: #0f172a;
+  --ig-hud-accent: #0284c7;
+  --ig-hud-border: rgba(15, 23, 42, 0.12);
+}
+
+#ig-pro-zoom-box[data-theme="insta-glow"] {
+  --ig-zoom-bg: linear-gradient(135deg, #1a101f 0%, #140f1d 100%);
+  --ig-zoom-border: rgba(225, 48, 108, 0.55);
+  --ig-zoom-glow: 
+    0 24px 60px rgba(0, 0, 0, 0.75),
+    0 0 28px rgba(225, 48, 108, 0.35),
+    0 0 0 1.5px rgba(247, 119, 55, 0.5);
+  --ig-hud-bg: linear-gradient(90deg, rgba(131, 58, 180, 0.85), rgba(253, 29, 29, 0.85), rgba(252, 176, 69, 0.85));
+  --ig-hud-text: #ffffff;
+  --ig-hud-accent: #fde047;
+  --ig-hud-border: rgba(255, 255, 255, 0.28);
+}
+
+#ig-pro-zoom-box[data-theme="cyber-neon"] {
+  --ig-zoom-bg: rgba(8, 12, 20, 0.94);
+  --ig-zoom-border: rgba(0, 245, 212, 0.5);
+  --ig-zoom-glow: 
+    0 24px 60px rgba(0, 0, 0, 0.85),
+    0 0 24px rgba(0, 245, 212, 0.28),
+    0 0 0 1px rgba(0, 245, 212, 0.45);
+  --ig-hud-bg: rgba(8, 15, 26, 0.85);
+  --ig-hud-text: #00f5d4;
+  --ig-hud-accent: #ff007f;
+  --ig-hud-border: rgba(0, 245, 212, 0.35);
+}
+
+/* ==========================================================================
+   Floating Magnifier Container
+   ========================================================================== */
+
+@keyframes igZoomPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#ig-pro-zoom-box {
+  position: fixed;
+  z-index: 2147483647;
+  pointer-events: none;
+  display: none;
+  border-radius: 16px;
+  padding: 4px;
+  background: var(--ig-zoom-bg);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--ig-zoom-border);
+  box-shadow: var(--ig-zoom-glow);
+  animation: igZoomPopIn 0.16s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, left, top;
+  box-sizing: border-box;
+}
+
+#ig-pro-zoom-media-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+  transform-origin: center center;
+  transition: transform 0.08s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+#ig-pro-zoom-box img,
+#ig-pro-zoom-box video {
+  display: block;
+  max-width: 72vw;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ==========================================================================
+   Floating Glassmorphism HUD Badge
+   ========================================================================== */
+
+#ig-pro-zoom-hud {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ig-hud-bg);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  color: var(--ig-hud-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--ig-hud-border);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.32);
+  letter-spacing: 0.35px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+#ig-pro-zoom-hud::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--ig-hud-accent);
+  box-shadow: 0 0 8px var(--ig-hud-accent);
+}

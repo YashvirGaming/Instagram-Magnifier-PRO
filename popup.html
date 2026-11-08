@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 280px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #141416;
+      color: #f8fafc;
+      margin: 0;
+    }
+    h3 {
+      margin: 0 0 14px 0;
+      font-size: 15px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      border-bottom: 1px solid #2a2a30;
+      padding-bottom: 10px;
+    }
+    .field {
+      margin-bottom: 12px;
+    }
+    label {
+      display: block;
+      font-size: 12px;
+      color: #a1a1aa;
+      margin-bottom: 5px;
+    }
+    select, input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 7px 10px;
+      border-radius: 8px;
+      border: 1px solid #32323a;
+      background: #1f1f24;
+      color: #fff;
+      font-size: 13px;
+      outline: none;
+    }
+    select:focus, input[type="text"]:focus {
+      border-color: #0095f6;
+    }
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      margin-bottom: 14px;
+      color: #e4e4e7;
+    }
+    button.primary-btn {
+      width: 100%;
+      padding: 9px;
+      border: none;
+      border-radius: 8px;
+      background: #0095f6;
+      color: white;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    button.primary-btn:hover {
+      background: #1877f2;
+    }
+    #status {
+      text-align: center;
+      font-size: 11px;
+      color: #4ade80;
+      margin-top: 6px;
+      height: 14px;
+    }
+    .nav-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid #2a2a30;
+    }
+    .nav-btn {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      padding: 7px 8px;
+      border-radius: 8px;
+      background: #1f1f24;
+      border: 1px solid #32323a;
+      color: #d4d4d8;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+    .nav-btn:hover {
+      background: #2a2a32;
+      color: #ffffff;
+      border-color: #52525b;
+    }
+  </style>
+</head>
+<body>
+  <h3>Instagram Magnifier PRO</h3>
+
+  <div class="field">
+    <label for="triggerMode">Zoom Activation Trigger</label>
+    <select id="triggerMode">
+      <option value="always">Always on Hover</option>
+      <option value="Shift">Hold Shift + Hover</option>
+      <option value="Control">Hold Ctrl + Hover</option>
+      <option value="Alt">Hold Alt + Hover</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="downloadKey">Download Hotkey (Single Letter)</label>
+    <input type="text" id="downloadKey" maxlength="1" value="d">
+  </div>
+
+  <div class="field">
+    <label for="theme">Magnifier Theme</label>
+    <select id="theme">
+      <option value="obsidian">Obsidian Dark (Default)</option>
+      <option value="frost">Frosted Glass Light</option>
+      <option value="insta-glow">Instagram Gradient Glow</option>
+      <option value="cyber-neon">Cyber Neon</option>
+    </select>
+  </div>
+
+  <div class="checkbox-row">
+    <input type="checkbox" id="enableVideo" checked>
+    <label for="enableVideo" style="margin:0;">Enable Video Hover Previews</label>
+  </div>
+
+  <button id="saveBtn" class="primary-btn">Save Settings</button>
+  <div id="status"></div>
+
+  <div class="nav-row">
+    <a href="guide.html" class="nav-btn">How to Use</a>
+    <a href="credits.html" class="nav-btn">Credits</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
