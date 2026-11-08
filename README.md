@@ -27,7 +27,7 @@ Made with ❤️ by **Yashvir Gaming**
 
 1. **Download or Clone this Repository:**
    ```bash
-   git clone https://github.com
+   git clone https://github.com/YashvirGaming/Instagram-Magnifier-PRO
    ```
    *(Or click **Code > Download ZIP** and extract the folder to your computer.)*
 2. Open Google Chrome and navigate to `chrome://extensions/`.
